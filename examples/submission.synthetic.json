@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "institution_id": "synthetic-institution",
+  "venue_id": "synthetic-interdisciplinary-journal",
+  "manuscript_id": "synthetic-new-submission",
+  "version_id": "v1-pre-review",
+  "title": "SYNTHETIC: Comparing learning interventions",
+  "text": "SYNTHETIC MANUSCRIPT FOR SOFTWARE DEMONSTRATION ONLY. We describe a randomized comparison with a baseline. The protocol and dataset are documented. We report limitations and uncertainty. This fictional application provides no actual scientific evidence.",
+  "version_time": "2026-01-01T00:00:00Z",
+  "text_available_at": "2026-01-01T00:00:00Z",
+  "submitted_at": "2026-01-02T00:00:00Z",
+  "rights_confirmed": true,
+  "synthetic": true
+}

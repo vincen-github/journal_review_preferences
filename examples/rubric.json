@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "institution_id": "synthetic-institution",
+  "venue_id": "synthetic-interdisciplinary-journal",
+  "name": "Synthetic institution's interdisciplinary journal rubric",
+  "source": "Institution-configured fictional rubric, not inferred from held-out reviews",
+  "available_at": "2022-01-01T00:00:00Z",
+  "score_range": [1, 10],
+  "positive_decision": "accept",
+  "negative_decision": "decline",
+  "accept_threshold": 6.0,
+  "threshold_mode": "configured",
+  "accepted_quantile": 0.25,
+  "criteria": [
+    {
+      "id": "methods",
+      "description": "Evaluate whether design and analysis support the claims. These mock keywords are illustrative only.",
+      "weight": 0.5,
+      "keywords": ["baseline", "randomized", "replication", "uncertainty"]
+    },
+    {
+      "id": "transparency",
+      "description": "Evaluate reporting, limitations, and reproducibility; keywords do not establish scientific rigor.",
+      "weight": 0.3,
+      "keywords": ["limitations", "protocol", "dataset", "code"]
+    },
+    {
+      "id": "contribution",
+      "description": "Assess relevance and contribution to the institution's venue; human judgment remains necessary.",
+      "weight": 0.2,
+      "keywords": ["theory", "comparison", "evidence", "application"]
+    }
+  ]
+}

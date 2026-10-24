@@ -1,0 +1,9 @@
+{
+  "mode": "local",
+  "adapter": "openai_compatible",
+  "endpoint": "http://127.0.0.1:1234/v1/chat/completions",
+  "model": "REPLACE_WITH_YOUR_ALREADY_RUNNING_LOCAL_MODEL",
+  "timeout_seconds": 30,
+  "temperature": 0,
+  "max_tokens": 1500
+}

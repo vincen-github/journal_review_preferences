@@ -1,0 +1,9 @@
+{
+  "mode": "cloud",
+  "adapter": "openai_compatible",
+  "endpoint": "https://provider.invalid/v1/chat/completions",
+  "model": "REPLACE_WITH_PROVIDER_MODEL",
+  "api_key_env": "JRP_EXPLICIT_CLOUD_API_KEY",
+  "allow_private_data_transfer": false,
+  "timeout_seconds": 30
+}

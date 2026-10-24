@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed": 20261023,
+  "max_frame_records_per_venue": 300,
+  "venues": [
+    {"venue_id": "ICLR.cc/2024/Conference", "completed": true},
+    {"venue_id": "ICLR.cc/2025/Conference", "completed": true}
+  ],
+  "rating_scale_policy": "Verify each venue-year's public official form at runtime; never guess or normalize raw scales",
+  "pilot_size_target": 18,
+  "network_status_at_delivery": "A metadata probe was denied HTTP 403 on 2026-10-23; no further live import attempted",
+  "sampling_notice": "Balanced across score bands and filtered for unanimous-high-score rejections; not a representative test set"
+}
