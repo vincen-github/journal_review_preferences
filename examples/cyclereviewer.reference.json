@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kind": "external_model_reference_only_not_runtime_config",
+  "purpose": "Optional research benchmark example; not a required journal output protocol",
+  "official_repository": "https://github.com/zhu-minjun/Researcher",
+  "listed_model": "CycleReviewer-ML-Llama3.1-70B",
+  "weights_reference": "https://huggingface.co/WestlakeNLP/CycleReviewer-ML-Llama3.1-70B",
+  "example_official_fields": [
+    "avg_rating",
+    "paper_decision"
+  ],
+  "license_reference": "https://github.com/zhu-minjun/Researcher/blob/main/LICENSE.md",
+  "license_status": "Custom CycleResearcher research license; registration, purpose and redistribution restrictions. No code or weights incorporated. Individual weight access/permission unverified.",
+  "execution_enabled": false,
+  "tested": false,
+  "note": "No download, official-model inference, mirror workaround or prompt-based imitation. A user-authorized compatible service or custom adapter and all applicable permissions would be required."
+}

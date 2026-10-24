@@ -3,7 +3,7 @@
 安装好 Python 3.10+ 后，在项目根目录运行，无需安装依赖、下载模型或填写密钥：
 
 ```powershell
-python -B -m journal_prefs demo --out my_first_demo
+python -B -m journal_prefs assess --task examples/assessment_task.synthetic.json --request examples/assessment_request.synthetic.json --out my_first_demo
 python -B -m unittest discover -s tests -v
 ```
 

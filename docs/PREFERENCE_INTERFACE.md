@@ -1,6 +1,6 @@
 # Preference algorithms and model providers
 
-The interfaces are separate: a preference algorithm creates external conditions; a model provider generates text/scores; affine calibration adjusts numeric outputs. No base weights are trained. **The current main method is simple absolute-score prediction/calibration**, using each same-year manuscript's mean human recommendation as target. Identity versus learning-fitted affine calibration is selected on validation and frozen before test evaluation. ICAI and the evidence-rule scaffold are retained as optional references/interfaces, not active defaults; no score-to-pairwise construction is performed.
+The framework does not mandate an alignment method. Institutions choose how historical data produces evaluation conditions and which model, output schema and task metric to use. [Generic assessment](ASSESSMENT_INTERFACE.md) supports categorical, textual, custom and optional numeric outputs. The scoring/calibration workflow and experimental learners below are replaceable examples; no base weights are trained and no score-to-pairwise construction is performed.
 
 Institution review instructions, rating anchors and JSON output fields have a separate [prompt-file interface](PROMPT_INTERFACE.md), shared by compatible local/cloud adapters and the independent Codex CLI scorer.
 

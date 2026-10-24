@@ -17,8 +17,8 @@ AI lowers manuscript-production costs while expert attention remains scarce. Gen
 
 ## Small interfaces, gradual adoption
 
-- Import manuscript versions, human reviews, scores, decisions, and timestamps through a clear schema.
-- Configure venue criteria, retrieve historical examples, and evaluate external score calibration with separate learning, validation, and test groups.
+- Define venue criteria and output schemas: narrative reviews, categorical recommendations, optional scores, and custom fields.
+- Plug in institution-chosen models and preference algorithms; separate training, validation, and test evidence.
 - Choose replaceable local/cloud adapters; local endpoints, model IDs, generation parameters, and structured responses are configurable. No base-model fine tuning is required.
 
 The offline CLI and replaceable interfaces work; real rule-conditioned validation remains unfinished. [Implementation and experiment status](docs/EXPERIMENTS.md).
@@ -27,14 +27,14 @@ Score prediction has prior work, including [PeerRead](https://github.com/allenai
 
 People may pursue model-specific shortcuts instead of improving research, motivating human oversight, manuscript-grounded evidence, and robustness checks.
 
-Preference algorithms have a separate fit/freeze/conditioning interface; [prompt files](docs/PROMPT_INTERFACE.md) configure standards and output. See [the current score method](docs/EXPERIMENTS.md).
+Institutions decide how history becomes evaluation criteria; no alignment algorithm is mandatory. [General assessment](docs/ASSESSMENT_INTERFACE.md), [custom algorithms](examples/custom_preferences.py), and [prompt files](docs/PROMPT_INTERFACE.md) are separate interfaces. ICLR scoring is one example.
 
 ## Try it locally
 
 With Python 3.10+, run from this folder:
 
 ```powershell
-python -B -m journal_prefs demo --out my_first_demo
+python -B -m journal_prefs assess --task examples/assessment_task.synthetic.json --request examples/assessment_request.synthetic.json --out my_first_demo
 ```
 
 [Quick start](QUICKSTART_ZH.md) · [Technical guide](docs/TECHNICAL_GUIDE.md) · [Data pilot](docs/PUBLIC_DATA_PILOT.md) · [Verification](TEST_RESULTS.md) · [Chinese rationale](PROJECT_RATIONALE_ZH.md)

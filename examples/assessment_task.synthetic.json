@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "synthetic-journal-triage",
+  "version": "1",
+  "instructions": "SYNTHETIC demonstration only. Suggest an editorial triage category, a short note, and institution-defined flags. Use only the supplied manuscript and explicitly supplied TRAIN examples. A human editor must review the suggestion.",
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "recommendation": {"type": "string", "maxLength": 32, "enum": ["send_for_review", "request_changes", "decline"]},
+      "editor_note": {"type": "string", "minLength": 1, "maxLength": 1000},
+      "custom": {
+        "type": "object",
+        "properties": {
+          "needs_specialist": {"type": "boolean"},
+          "tags": {"type": "array", "maxItems": 3, "items": {"type": "string", "maxLength": 40}}
+        },
+        "required": ["needs_specialist", "tags"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["recommendation", "editor_note", "custom"],
+    "additionalProperties": false
+  },
+  "metrics": [{"field": "recommendation", "metric": "accuracy"}],
+  "offline_response": {
+    "synthetic": true,
+    "output": {
+      "recommendation": "request_changes",
+      "editor_note": "SYNTHETIC configured example; this response does not assess manuscript quality. A human editor must check the reporting requirements.",
+      "custom": {"needs_specialist": true, "tags": ["SYNTHETIC", "reporting"]}
+    }
+  }
+}

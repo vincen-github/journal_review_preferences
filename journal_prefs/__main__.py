@@ -18,6 +18,12 @@ def main(argv=None):
     commands = parser.add_subparsers(dest="command", required=True)
     demo = commands.add_parser("demo", help="Run only authored synthetic data and deterministic mock, fully offline")
     demo.add_argument("--out", default="demo_output")
+    assessment = commands.add_parser("assess", help="Institution-configured structured assessment; numeric scores are optional")
+    assessment.add_argument("--task", required=True, help="Versioned instructions, output schema and optional task metrics")
+    assessment.add_argument("--request", required=True, help="Unlabelled target and explicitly selected TRAIN examples")
+    assessment.add_argument("--config", default=str(ROOT / "configs" / "offline.json"))
+    assessment.add_argument("--allow-cloud", action="store_true")
+    assessment.add_argument("--out", required=True, help="NEW local output directory")
     preference_demo = commands.add_parser("preference-demo", help="Synthetic preference-interface demo; not ICAI reproduction or a real experiment")
     preference_demo.add_argument("--out", required=True)
     validate = commands.add_parser("validate", help="Validate institution-owned JSONL history; no model call")
@@ -46,7 +52,19 @@ def main(argv=None):
             command.add_argument("--state", required=True, help="Previously frozen model_state.json")
     args = parser.parse_args(argv)
     try:
-        if args.command == "preference-demo":
+        if args.command == "assess":
+            from .assessment import assess
+            from .data import fingerprint
+            if Path(args.out).exists():
+                raise ValueError("Output directory already exists; choose a new path")
+            task, request = read_json(args.task), read_json(args.request)
+            result = assess(task, request, read_json(args.config), args.allow_cloud)
+            Path(args.out).mkdir(parents=True, exist_ok=False)
+            write_json(Path(args.out) / "assessment.json", result)
+            write_json(Path(args.out) / "task_snapshot.json", {"task": task, "task_sha256": fingerprint(task)})
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 0
+        elif args.command == "preference-demo":
             from .comparison import run_preference_demo
             rubric = validate_rubric(read_json(ROOT / "examples" / "rubric.json"))
             rows = load_history(ROOT / "examples" / "history.synthetic.jsonl", rubric)

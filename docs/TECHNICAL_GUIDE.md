@@ -1,3 +1,5 @@
+This framework has a [general assessment interface](ASSESSMENT_INTERFACE.md) with optional scores, categorical recommendations, narrative and custom fields. Institutions choose their own model and alignment algorithm. The chronological numeric scoring workflow below is one runnable research example, not a required journal protocol.
+
 # Technical guide
 
 Current main method: [absolute-score prediction and calibration](EXPERIMENTS.md). Replaceable preference interfaces are retained; ICAI and the simplified rule scaffold are inactive references, not default algorithms.

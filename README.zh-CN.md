@@ -17,8 +17,8 @@ AI 降低了稿件生产成本，专家注意力却依然稀缺。通用模型�
 
 ## 小接口，逐步采用
 
-- 用清晰格式接入稿件版本、人工评审、分数、决定与时间。
-- 配置机构标准，检索历史案例，在分开的学习、验证与测试组中检查外部分数校准。
+- 自定义评价维度与输出：文字评审、接收/修改/拒绝等分类、可选数字评分及其他字段。
+- 由机构自行选择模型与偏好算法，分开管理训练、验证和测试材料。
 - 替换本地或云端模型；本地服务地址、模型 ID、生成参数与结构化输出均可配置，首版无需微调基础模型。
 
 离线 CLI 与可替换接口已可运行，真实规则条件对照尚未完成。[实现与实验状态](docs/EXPERIMENTS.md)。
@@ -27,14 +27,14 @@ AI 降低了稿件生产成本，专家注意力却依然稀缺。通用模型�
 
 使用者也可能迎合模型偏好、寻找 shortcut，而非改善研究本身，因此设计上重视人工监督、正文证据与稳健性检查。
 
-算法接口支持拟合、冻结和载入；独立的[提示词文件](docs/PROMPT_INTERFACE.md)可配置标准与输出。[当前评分方法](docs/EXPERIMENTS.md)另行说明。
+机构自行决定如何从历史材料形成评价标准；框架不指定必须采用的对齐算法。[通用评价](docs/ASSESSMENT_INTERFACE.md)、[算法示例](examples/custom_preferences.py)与[提示文件](docs/PROMPT_INTERFACE.md)相互独立，ICLR 评分只是一个例子。
 
 ## 本地体验
 
 有 Python 3.10+ 时，在项目目录运行：
 
 ```powershell
-python -B -m journal_prefs demo --out my_first_demo
+python -B -m journal_prefs assess --task examples/assessment_task.synthetic.json --request examples/assessment_request.synthetic.json --out my_first_demo
 ```
 
 [快速开始](QUICKSTART_ZH.md) · [技术说明](docs/TECHNICAL_GUIDE.md) · [数据试点](docs/PUBLIC_DATA_PILOT.md) · [验证记录](TEST_RESULTS.md) · [完整项目故事](PROJECT_RATIONALE_ZH.md)

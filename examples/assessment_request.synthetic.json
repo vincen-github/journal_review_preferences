@@ -1,0 +1,22 @@
+{
+  "target": {
+    "id": "SYNTHETIC-TARGET-002",
+    "title": "Synthetic journal submission",
+    "text": "SYNTHETIC manuscript for demonstrating a configurable interface. The authors describe a small comparison and an incomplete reporting checklist. No real research or editorial decision is represented."
+  },
+  "history": [
+    {
+      "split": "TRAIN",
+      "manuscript": {
+        "id": "SYNTHETIC-TRAIN-001",
+        "title": "Synthetic historical submission",
+        "text": "SYNTHETIC historical example. Its reporting checklist omitted the comparison protocol."
+      },
+      "output": {
+        "recommendation": "request_changes",
+        "editor_note": "SYNTHETIC human-labelled TRAIN example: request the missing comparison protocol before external review.",
+        "custom": {"needs_specialist": false, "tags": ["SYNTHETIC", "reporting"]}
+      }
+    }
+  ]
+}
